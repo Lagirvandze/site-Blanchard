@@ -1,13 +1,21 @@
 
+// скролл по якорю
+document.addEventListener('DOMContentLoaded', () => {
+  const anchors = document.querySelectorAll('a[href*="#"]')
 
-// $( function() {
-//   $( ".accordion" ).accordion( {
-//     heightStyle: "content",
-//     collapsible: true,
-//     icons: { "header": false,
-//                "activeHeader": false }
-//   });
-// } );
+  for (let anchor of anchors) {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault()
+
+      const blockID = anchor.getAttribute('href').substr(1)
+
+      document.getElementById(blockID).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    })
+  })
+}
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector(".container-relative")
@@ -95,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         spaceBetween: 34,
         slidesPerGroup: 2,
       },
-      1200: {
+      1920: {
         slidesPerView: 3,
         spaceBetween: 50,
         slidesPerGroup: 3,
@@ -232,6 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   let eventsSlider = new Swiper('.events__swiper', {
     // количество отображаемых слайдов
+    height: 1,
     slidesPerView: 3,
     speed: 1500,
     grid: {
@@ -292,13 +301,13 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     breakpoints: {
-      441: {
+      320: {
         slidesPerView: 1,
         spaceBetween: 0,
         // количество слайдов в группе при свайпе/пролистывании slidesPerGroup
         slidesPerGroup: 1,
       },
-      769: {
+      759: {
         slidesPerView: 2,
         spaceBetween: 34,
         slidesPerGroup: 1,
@@ -322,6 +331,16 @@ document.addEventListener('DOMContentLoaded', () => {
   var selectortel = document.querySelector("input[type='tel']")
   var imtel = new Inputmask("+7 (999)-999-99-99");
   imtel.mask(selectortel);
+  // nameel = document.getElementById("name");
+  // function Regexp1 (nameel) {
+  //   a = /^[0-9]+$/.test(nameel);
+  //   if (a == 0) {
+  //     return true
+  //   }
+  //   else {
+  //     return false
+  //   }
+  // }
 
   const validation = new JustValidate ('.form', {
     rules: {
@@ -329,7 +348,14 @@ document.addEventListener('DOMContentLoaded', () => {
         required: true,
         minLength: 2,
         maxLength: 15,
-        customRegexp: /[^0-9]/,
+        function: (name) => {
+          if (/^[0-9]+$%/.test(name) == true) {
+            return true;
+          }
+          else {
+            return false;
+          }
+        },
       },
       tel: {
         required: true,
@@ -345,8 +371,8 @@ document.addEventListener('DOMContentLoaded', () => {
       name: {
           required: 'Вы не ввели имя',
           minLength: 'Min число символов 2',
-          maxLength: 'Max число символов 15'
-
+          maxLength: 'Max число символов 15',
+          function: "Недопустимый формат"
       },
       tel: {
           required: 'Вы не ввели телефон',
@@ -372,6 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 zoom: 14.5,
                 controls: ['zoomControl', 'geolocationControl']
             });
+
 
             // Создание геообъекта с типом точка (метка).
             var myPlacemark = new ymaps.Placemark([55.75846806898367, 37.60108849999989], {}, {
@@ -456,4 +483,55 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#gallery__card2').classList.remove('is-active')
   });
 
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  tippy('#projects__btn1', {
+    content: "Пример современных тенденций - современная методогия разработки",
+    animation: 'scale',
+    trigger: 'click',
+  });
+
+  tippy('#projects__btn2', {
+    content: "Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции",
+    animation: 'scale',
+    trigger: 'click',
+  });
+
+  tippy('#projects__btn3', {
+    content: "В стремлении повысить качество",
+    animation: 'scale',
+    trigger: 'click',
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('#header__nav-btn-open').addEventListener('click', function() {
+    document.querySelector('#header__nav').classList.add('is-active-nav')
+  });
+  document.querySelector('#nav__btn-exit').addEventListener('click', function() {
+    document.querySelector('#header__nav').classList.remove('is-active-nav')
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector(".header__search-form-btn-open").addEventListener("click", function() {
+    document.querySelector(".header__search-form").classList.add("form__active");
+    this.classList.add("active");
+  })
+  document.querySelector(".header__search-form-btn-exit").addEventListener("click", function() {
+    let form = document.querySelector(".header__search-form");
+    form.classList.remove("form__active");
+    form.querySelector("input").value = "";
+    document.querySelector(".header__search-form-btn-open").classList.remove("active");
+  });
+  document.addEventListener("click", function(e) {
+    let target = e.target;
+    let form = document.querySelector(".header__search-form");
+    if (!target.closest(".header__form-container")) {
+      form.classList.remove("form__active");
+      form.querySelector("input").value = "";
+      document.querySelector(".header__search-form-btn-open").classList.remove("active")
+    }
+  })
 });

@@ -250,6 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pagination: {
       el: ".events__swiper-pagination",
+      clickable: true,
     },
 
     navigation: {
@@ -489,18 +490,24 @@ document.addEventListener('DOMContentLoaded', () => {
   tippy('#projects__btn1', {
     content: "Пример современных тенденций - современная методогия разработки",
     animation: 'scale',
+    theme: 'default',
+    arrow: true,
     trigger: 'click',
   });
 
   tippy('#projects__btn2', {
     content: "Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции",
     animation: 'scale',
+    theme: 'default',
+    arrow: true,
     trigger: 'click',
   });
 
   tippy('#projects__btn3', {
     content: "В стремлении повысить качество",
     animation: 'scale',
+    theme: 'default',
+    arrow: true,
     trigger: 'click',
   });
 });

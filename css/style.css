@@ -962,13 +962,13 @@ input::-webkit-search-results-decoration { display: none; }
 }
 
 .choices__inner .choices__list--dropdown .choices__item--selectable.is-highlighted, .choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
-  background-color: transparent;
+  background-color: black;
 }
 
 .choices__list--dropdown,
 .choices__list[aria-expanded] {
   z-index: 10;
-  background-color: transparent;
+  background-color: black;
   color: var(--color-gray-999);
   border-radius: 6px 6px 6px 6px;
 }
@@ -2115,19 +2115,50 @@ input::-webkit-search-results-decoration { display: none; }
   background-color: var(--color-purple-9D5CD0);
 }
 
-.tippy-box {
+/* .tippy-box {
   max-width: 264px !important;
   padding: 10px 11px;
   text-align: center;
-  background-color: var(--color-purple-9D5CD0);
-  font-size: 12px;
+  /* background-color: var(--color-purple-9D5CD0); */
+  /* font-size: 12px;
   font-weight: 400;
   line-height: 16px;
-}
-
+} */
+/*
 .tippy-content {
   max-width: 264px;
   padding: 0;
+}
+
+
+.tippy-tooltip {
+  border-top: 7px solid red; /* your color here */
+    /* border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+} */
+
+.tippy-box[data-theme~='default'] {
+  max-width: 264px !important;
+  padding: 10px 11px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  background: var(--color-purple-9D5CD0) !important;
+  border: var(--color-purple-9D5CD0) !important;
+}
+
+.tippy-box[data-theme~='default'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: var(--color-purple-9D5CD0);
+}
+.tippy-box[data-theme~='default'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: var(--color-purple-9D5CD0);
+}
+.tippy-box[data-theme~='default'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: var(--color-purple-9D5CD0);
+}
+.tippy-box[data-theme~='default'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: var(--color-purple-9D5CD0);
 }
 
 
@@ -2807,6 +2838,14 @@ label{
   .contacts__left {
     flex-wrap: wrap;
     gap: 30px;
+  }
+
+  .catalog__list {
+    width: 60%;
+  }
+
+  .catalog__tabs-item {
+    width: 40%;
   }
 }
 
@@ -3534,6 +3573,10 @@ label{
 
   .tabs-item-empty__descr {
     max-width: 400px;
+  }
+
+  .js-validate-error-label {
+    top: -15px;
   }
 
 }

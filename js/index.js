@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     breakpoints: {
-      441: {
+      576: {
         slidesPerView: 2,
         spaceBetween: 38,
         // количество слайдов в группе при свайпе/пролистывании slidesPerGroup

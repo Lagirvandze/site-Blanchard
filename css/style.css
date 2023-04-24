@@ -3402,6 +3402,10 @@ label{
     height: 330px;
   }
 
+  .gallery__swiper-slide::after {
+    background-size: 85%;
+  }
+
   .gallery__card-img {
     height: 100%;
     width: 301px;
@@ -3597,6 +3601,7 @@ label{
   .hero__title {
     font-weight: 700;
     font-size: 35px;
+    line-height: 53px;
   }
 
   .hero__content {
@@ -3667,12 +3672,12 @@ label{
   }
 
   .gallery__card-btn-exit {
-    top: -225px;
+    top: -215px;
   }
 
 }
 
-@media (max-width: 320px) {
+@media (max-width: 576px) {
 
   .container2 {
     padding-top: 50px;
@@ -3876,7 +3881,7 @@ label{
   .gallery__card {
     width: 290px;
     height: 600px;
-    left: 5%;
+    left: 12vw;
   }
 
   .gallery__card-img {
@@ -3894,6 +3899,10 @@ label{
 
   .gallery__card-dates {
     margin-bottom: 12px;
+  }
+
+  .gallery__swiper-slide::after {
+    background-size: 85%;
   }
 
   .catalog__par {
@@ -3936,7 +3945,7 @@ label{
   }
 
   .tabs-item__img {
-    height: 181px;
+    height: 250px;
   }
 
   .descr-empty__title {
@@ -3968,7 +3977,8 @@ label{
 
   .events__swiper-slide {
     padding-left: 23px;
-    background-size: 290px 200px;
+    background-size: auto 200px;
+    background-position: top center;
   }
 
   .events__swiper-slide-inf {

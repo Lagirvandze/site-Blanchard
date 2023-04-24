@@ -3862,7 +3862,16 @@ label{
   .gallery__swiper-navigation {
     order: 1;
     align-self: center;
+    gap: 20px;
     margin-bottom: 0;
+  }
+
+  .gallery__swiper-btn-prev {
+    margin-right: 0;
+  }
+
+  .gallery__swiper-pagination {
+    margin-right: 0;
   }
 
   .gallery__container-content {
